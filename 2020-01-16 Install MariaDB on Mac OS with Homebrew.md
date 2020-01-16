@@ -1,5 +1,5 @@
 ---
-title: My custom title
+title: Install MariaDB on Mac OS with Homebrew
 ---
 
 [<= back to index](/)
