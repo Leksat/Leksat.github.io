@@ -1,5 +1,5 @@
 ---
-title: My custom title 2
+title: Leksat notes
 ---
 
 ## Leksat notes
