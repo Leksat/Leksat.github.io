@@ -2,7 +2,7 @@
 title: Install MariaDB on Mac OS with Homebrew
 ---
 
-[<= back to index](/)
+<small>[<= back to index](/)</small>
 
 # Install MariaDB on Mac OS with Homebrew
 
@@ -44,5 +44,6 @@ Your MariaDB connection id is 16
 
 But of course you need it to work without `sudo`. To do that, you need to formulate a [proper google query](https://www.google.com/search?q=mariadb+mysql+uroot+works+only+with+sudo), which would lead you to the solution: [https://askubuntu.com/questions/766334/cant-login-as-mysql-user-root-from-normal-user-account-in-ubuntu-16-04](https://askubuntu.com/questions/766334/cant-login-as-mysql-user-root-from-normal-user-account-in-ubuntu-16-04)
 
+Just follow the steps from the [most popular answer](https://askubuntu.com/a/784347/99219) and you're done 🎉
 
-[<= back to index](/)
+<small>[<= back to index](/)</small>
