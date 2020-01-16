@@ -31,8 +31,6 @@ $ mysql -uroot
 ERROR 1698 (28000): Access denied for user 'root'@'localhost'
 ```
 
-## Solution
-
 If you google the error, you may find that some people suggest to run it as root. And it really works:
 ```
 $ sudo mysql -uroot
@@ -42,8 +40,18 @@ Your MariaDB connection id is 16
 ...
 ```
 
-But of course you need it to work without `sudo`. To do that, you need to formulate a [proper google query](https://www.google.com/search?q=mariadb+mysql+uroot+works+only+with+sudo), which would lead you to the solution: [https://askubuntu.com/questions/766334/cant-login-as-mysql-user-root-from-normal-user-account-in-ubuntu-16-04](https://askubuntu.com/questions/766334/cant-login-as-mysql-user-root-from-normal-user-account-in-ubuntu-16-04)
+But of course you need it to work without `sudo`.
 
-Just follow the steps from the [most popular answer](https://askubuntu.com/a/784347/99219) and you're done 🎉
+## Solution
+
+If the above is your case, all you need to do is to
+- login to MySQL with `sudo mysql -uroot`
+- run `SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');` from there
+
+The best explanation that [I was able to find](https://askubuntu.com/a/964762/99219):
+
+> The issue here is that when MariaDB or MySQL are installed/updated (especially if at some point root is set without a password) then in the Users table the password is actually empty (or ignored), and logging in depends on the system user corresponding to a MySQL user.
+
+And as far as I understood it, "empty" is not the same as "empty string".
 
 <small>[<= back to index](/)</small>
