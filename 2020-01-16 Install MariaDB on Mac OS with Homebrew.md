@@ -11,7 +11,9 @@ To have launchd start mariadb now and restart at login:
   brew services start mariadb
 ```
 
-So you start the service and try to login.
+So you start the service with `brew services start mariadb` and try to login.
+
+## Problem
 
 Variant 1:
 ```
@@ -24,6 +26,8 @@ Variant 2:
 $ mysql -uroot
 ERROR 1698 (28000): Access denied for user 'root'@'localhost'
 ```
+
+## Solution
 
 If you google the error, you may find that some people suggest to run it as root. And it really works:
 ```
