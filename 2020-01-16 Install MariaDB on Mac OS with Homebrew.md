@@ -1,3 +1,7 @@
+---
+title: My custom title
+---
+
 [<= back to index](/)
 
 # Install MariaDB on Mac OS with Homebrew
