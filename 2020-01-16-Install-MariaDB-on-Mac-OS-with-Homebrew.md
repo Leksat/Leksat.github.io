@@ -54,7 +54,7 @@ You cannot login with `mysql -uroot` because
 
 ## Solution
 
-To make it possible to login root user without a password:
+To make it possible to login as root user without password:
 - login to MySQL with `sudo mysql -uroot`
 - run `SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');` from there
 
