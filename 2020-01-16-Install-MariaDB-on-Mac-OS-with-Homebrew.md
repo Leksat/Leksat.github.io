@@ -42,16 +42,20 @@ Your MariaDB connection id is 16
 
 But of course you need it to work without `sudo`.
 
+## Reason
+
+The above behaviour was introduced in [MariaDB 10.4](https://mariadb.com/kb/en/authentication-from-mariadb-104/).
+
+You can login with `sudo mysql -uroot` because
+> First, it is configured to try to use the unix_socket authentication plugin. This allows the root@localhost user to login without a password via the local Unix socket file defined by the socket system variable, as long as the login is attempted from a process owned by the **operating system root user account**.
+
+You cannot login with `mysql -uroot` because
+> Second, if authentication fails with the unix_socket authentication plugin, then it is configured to try to use the mysql_native_password authentication plugin. However, **an invalid password is initially set**, so in order to authenticate this way, a password must be set with SET PASSWORD.
+
 ## Solution
 
-If the above is your case, all you need to do is to
+To make it possible to login root user without a password:
 - login to MySQL with `sudo mysql -uroot`
 - run `SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');` from there
-
-The best explanation that [I was able to find](https://askubuntu.com/a/964762/99219):
-
-> The issue here is that when MariaDB or MySQL are installed/updated (especially if at some point root is set without a password) then in the Users table the password is actually empty (or ignored), and logging in depends on the system user corresponding to a MySQL user.
-
-And as far as I understood it, "empty" is not the same as "empty string".
 
 <small>[<= back to index](/)</small>
